@@ -36,7 +36,10 @@ public class MongoRepositoryAdapter implements StudentGateway {
 
     @Override
     public Mono<Student> saveStudent(Student student) {
-        return null;
+        return this.studentRepository
+                .save(mapper.map(student, StudentData.class))
+                .map(student1 -> mapper.map(student1, Student.class))
+                .onErrorResume(Mono::error);
     }
 
     @Override

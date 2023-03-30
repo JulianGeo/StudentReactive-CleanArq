@@ -9,8 +9,6 @@ import reactor.core.publisher.Flux;
 public class GetAllStudentsUseCase {
     private final StudentGateway gateway;
     public Flux<Student> get(){
-
-        System.out.println("Usecase used");
         return gateway.getAllBooks();
     }
 }

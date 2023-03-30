@@ -2,6 +2,7 @@ package com.reactiveapp.config;
 
 import com.reactiveapp.model.student.gateways.StudentGateway;
 import com.reactiveapp.usecase.getallstudents.GetAllStudentsUseCase;
+import com.reactiveapp.usecase.savestudent.SaveStudentUseCase;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -17,5 +18,10 @@ public class UseCasesConfig {
         @Bean
         public GetAllStudentsUseCase getAllStudentsUseCase(StudentGateway gateway){
         return new GetAllStudentsUseCase(gateway);
+        }
+
+        @Bean
+        public SaveStudentUseCase saveStudentUseCase(StudentGateway gateway){
+                return new SaveStudentUseCase(gateway);
         }
 }
